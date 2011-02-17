@@ -1,0 +1,26 @@
+" 1.2 (created: 2008/08/16 18:51:52)
+" Mappings
+
+" Options
+
+" Abbreviations
+
+
+" vim: set ft=vimperator:
+set guioptions+=mT
+:au LocationChange .* js modes.passAllKeys = /(google|mibbit)\.com/.test(buffer.URL)
+
+:au LocationChange .* :set editor="/Users/scudco/bin/gvim -f"
+:au LocationChange mail\.google\.com :set editor="/Users/scudco/bin/gvim -f -c 'set ft=mail'"
+
+javascript <<EOF
+(function(){
+    var feedPanel = document.createElement("statusbarpanel");
+    feedPanel.setAttribute("id", "feed-panel-clone");
+    feedPanel.appendChild(document.getElementById("feed-button"));
+    feedPanel.firstChild.setAttribute("style", "padding: 0; max-height: 16px;");
+    document.getElementById("status-bar")
+            .insertBefore(feedPanel, document.getElementById("security-button"));
+})();
+EOF
+javascript liberator.beep = function() { return false; }

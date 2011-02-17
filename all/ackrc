@@ -1,0 +1,10 @@
+--pager
+less -r
+--type-add
+ruby=.haml
+--type-add
+css=.sass
+--ruby
+--css
+--js
+

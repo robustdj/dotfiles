@@ -1,0 +1,9 @@
+log/*
+.DS_Store
+tags
+TAGS
+*.sw*
+artifacts
+tags
+tmp/*
+db/*.sqlite3
