@@ -19,7 +19,7 @@ endfunction
 
 command! -bang -narg=? -complete=file   FuzzyFinderTextMate   call FuzzyFinderTextMateLauncher(<q-args>, len(<q-bang>))
 command! FuzzyFinderTextMateRefreshFiles ruby refresh_finder
-  
+
 function! InstantiateTextMateMode() "{{{
 ruby << RUBY
   begin
@@ -73,7 +73,8 @@ RUBY
 ruby << RUBY
   def finder
     @finder ||= begin
-      roots = VIM.evaluate("g:fuzzy_roots").split("\n")
+      fuzzy_roots = VIM.evaluate("g:fuzzy_roots")
+      roots = fuzzy_roots.respond_to?(:split) ? fuzzy_roots.split("\n") : fuzzy_roots
       ceiling = VIM.evaluate("g:fuzzy_ceiling").to_i
       ignore = VIM.evaluate("g:fuzzy_ignore").split(/[;,]/)
       FuzzyFileFinder.new(roots, ceiling, ignore)
@@ -87,7 +88,7 @@ ruby << RUBY
   end
 RUBY
 
-  let g:FuzzyFinderMode.TextMate = copy(g:FuzzyFinderMode.Base)
+  let g:FuzzyFinderMode.TextMate = copy(g:FuzzyFinderMode.File)   " Base does not define 'on_open' anymore
 
   function! g:FuzzyFinderMode.TextMate.on_complete(base)
     if exists('g:fuzzy_enumerating_limit')
@@ -98,7 +99,7 @@ RUBY
     let result = []
     ruby << RUBY
 
-      text = VIM.evaluate('s:RemovePrompt(a:base,self.prompt)')
+      text = VIM.evaluate('s:RemovePrompt(a:base,self.prompt)') rescue ''
       enumerating_limit = VIM.evaluate('l:enumerating_limit').to_i
       path_display = VIM.evaluate("g:fuzzy_path_display")
       ceiling = VIM.evaluate('g:fuzzy_ceiling').to_i
@@ -116,9 +117,9 @@ RUBY
   endfunction
 
   function! FuzzyFinderTextMateLauncher(initial_text, partial_matching)
-    call g:FuzzyFinderMode.TextMate.launch(a:initial_text, a:partial_matching)
+    call g:FuzzyFinderMode.TextMate.launch_base(a:initial_text, a:partial_matching)
   endfunction
-  
+
   let g:FuzzyFinderOptions.TextMate = copy(g:FuzzyFinderOptions.File)
 endfunction "}}}
 
