@@ -152,4 +152,4 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 export VISUAL='vim'
 export SPEC_OPTS='-c'
 
-if [[ -s /Users/derrick/.rvm/scripts/rvm ]] ; then source /Users/derrick/.rvm/scripts/rvm ; fi
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
