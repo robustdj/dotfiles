@@ -41,6 +41,14 @@ export PS1="\n<\[\033[0;32m\]\h\[\033[0m\]:\[\033[0;37m\]\u\[\033[0m\]> \j [\$(d
 
 export PATH=~/bin:/opt/local/bin:/opt/local/sbin:$PATH
 
+# BASH completion
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  . `brew --prefix`/etc/bash_completion
+fi
+[[ -s /usr/local/etc/bash_completion.d/git-completion.bash ]] && source /usr/local/etc/bash_completion.d/git-completion.bash
+complete -o default -o nospace -F _git_checkout g
+
+
 # gemdoc() {
 #   local gemdir=`gem env gemdir`
 #   open $gemdir/doc/`ls $gemdir/doc/ | grep $1 | sort | tail -1`/rdoc/index.html
