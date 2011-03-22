@@ -19,6 +19,9 @@
   set nocompatible
   syntax on
 
+" Disable blinking cursor
+  set gcr=n:blinkon0
+
 " Highlight matching parens
   set showmatch
   "set completeopt=menu,preview

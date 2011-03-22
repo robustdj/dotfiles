@@ -113,6 +113,7 @@ alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gb='git branch'
 alias gba='git branch -a'
+alias gg='git grep'
 
 # Some shortcuts for different directory listings
 alias ls='ls -GhF'                 # classify files in colour
