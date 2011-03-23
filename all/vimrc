@@ -159,6 +159,9 @@
   runtime! search_config.vim
   runtime! shell.vim
 
+" ~/.vim/ftdetect/Gemfile.vim
+  autocmd BufRead,BufNewFile Gemfile set filetype=Gemfile
+
 " GetLatestVimScripts
   let g:GetLatestVimScripts_allowautoinstall=1
 
