@@ -134,6 +134,13 @@
 " toggle Quickfix window with <leader>q
   map <silent> <leader>q :QFix<CR>
 
+" Make :W write!!!!
+  map :W :w
+
+" Git Grep
+  map <leader>f :GitGrep<space>
+
+
 " Mappings for align
   vmap <silent> <Leader>i= <ESC>:AlignPush<CR>:AlignCtrl lp1P1<CR>:'<,'>Align =<CR>:AlignPop<CR>
   vmap <silent> <Leader>i, <ESC>:AlignPush<CR>:AlignCtrl lp0P1<CR>:'<,'>Align ,<CR>:AlignPop<CR>
@@ -156,7 +163,6 @@
   runtime! nerdtree_config.vim
   runtime! nerdcommenter_config.vim
   runtime! fuzzy_finder_config.vim
-  runtime! search_config.vim
   runtime! shell.vim
 
 " ~/.vim/ftdetect/Gemfile.vim
