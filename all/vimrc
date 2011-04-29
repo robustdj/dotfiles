@@ -140,6 +140,15 @@
 " Git Grep
   map <leader>f :GitGrep<space>
 
+" show the `best match so far' as search strings are typed:
+  set incsearch
+
+" Highlight search results once found:
+  set hlsearch
+
+" assume the /g flag on :s substitutions to replace all matches in a line:
+  set gdefault
+
 
 " Mappings for align
   vmap <silent> <Leader>i= <ESC>:AlignPush<CR>:AlignCtrl lp1P1<CR>:'<,'>Align =<CR>:AlignPop<CR>
