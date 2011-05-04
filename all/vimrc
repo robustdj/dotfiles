@@ -94,9 +94,6 @@
 " Run file with...
   nmap <leader>st :Shell ruby %<CR>
 
-" Quick, jump out of insert mode while no one is looking
-  imap ii <Esc>
-
 " Title: no title for me
   set notitle
 
