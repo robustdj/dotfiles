@@ -58,4 +58,4 @@
 " Run file in shell mode with ruby
   nnoremap <D-r> :Shell ruby %<cr>
 
-  colorscheme tubster
+  colorscheme molokai

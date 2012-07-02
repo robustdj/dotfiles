@@ -30,6 +30,9 @@
   set wildmenu
   set wildmode=list:longest,full
 
+" Enable 256 color mode
+  set t_Co=256
+
 " have the mouse enabled all the time:
   set mouse=a
 
@@ -178,8 +181,8 @@
   let g:GetLatestVimScripts_allowautoinstall=1
 
 " Highlight trailing whitespace
-  autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-  autocmd BufRead,InsertLeave * match ExtraWhitespace /\s\+$/
+  "autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+  "autocmd BufRead,InsertLeave * match ExtraWhitespace /\s\+$/
 
 " Set up highlight group & retain through colorscheme changes
   highlight ExtraWhitespace ctermbg=red guibg=red
@@ -191,7 +194,7 @@
   autocmd ColorScheme * highlight LineLengthError ctermfg=red guifg=red
 
 " Fuck whitespace
-  autocmd FileType c,cpp,java,php,ruby,eruby,python,html,css,javascript autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+  "autocmd FileType c,cpp,java,php,ruby,eruby,python,html,css,javascript autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
 " Add pathogen dependencies because mixed up stuff is mixed up
   call pathogen#runtime_append_all_bundles()

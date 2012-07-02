@@ -88,10 +88,28 @@
 # application.  To override the alias instruction use a \ before, ie
 # \rm will call the real rm not the alias.
 
+# SSH into WF servers
+ws(){
+  if [ -z "$1" ] && [ -z "$2" ]
+  then
+    echo "Make sure you're in your project directory as this runs capistrano"
+    echo "Usage: ws <environment> <server>"
+    echo "Example: ws staging job"
+    return
+  fi
+  
+  #eval ["$ssh_str", `cap $1 | awk '/$2/' | awk '{print \$NF}'`]
+  #eval $(printf "%q`cap $1 | awk '/$2/' | awk '{print \$NF}'`" "ssh wildfire@")
+}
+
 # Interactive operation...
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+
+# bundle exec
+alias be='bundle exec'
+alias b='bundle'
 
 # Default to human readable figures
 alias df='df -h'
@@ -113,7 +131,7 @@ alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gb='git branch'
 alias gba='git branch -a'
-alias gg='git grep'
+alias gg='git grep -n'
 
 # Some shortcuts for different directory listings
 alias ls='ls -GhF'                 # classify files in colour
@@ -152,5 +170,7 @@ parse_git_branch() {
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export VISUAL='vim'
 export SPEC_OPTS='-c'
+export TERM=xterm-256color
+export NODE_PATH="/usr/local/lib/node"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
