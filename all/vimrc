@@ -177,6 +177,9 @@
 " ~/.vim/ftdetect/Gemfile.vim
   autocmd BufRead,BufNewFile Gemfile set filetype=Gemfile
 
+" detect handlebars files
+  au BufRead,BufNewFile *.handlebars,*.hbs set ft=handlebars
+
 " GetLatestVimScripts
   let g:GetLatestVimScripts_allowautoinstall=1
 
