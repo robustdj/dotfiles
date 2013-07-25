@@ -172,5 +172,9 @@ export VISUAL='vim'
 export SPEC_OPTS='-c'
 export TERM=xterm-256color
 export NODE_PATH="/usr/local/lib/node"
+export EDITOR="vi"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
