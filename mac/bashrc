@@ -170,11 +170,28 @@ parse_git_branch() {
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export VISUAL='vim'
 export SPEC_OPTS='-c'
-export TERM=xterm-256color
-export NODE_PATH="/usr/local/lib/node"
+# export TERM=xterm-256color
 export EDITOR="vi"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+function gvim () { (/usr/bin/gvim -f "$@" &) }
+
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+if [[ -e "${HOME}/.rbenv/bin/rbenv" ]]; then
+  RBENV_ROOT=$HOME/.rbenv
+elif [[ -e "/usr/local/rbenv/bin/rbenv" ]]; then
+  RBENV_ROOT=/usr/local/rbenv
+fi
+
+export RBENV_ROOT
+export PATH="${RBENV_ROOT}/bin:${PATH}"
+if [[ -n "${RBENV_ROOT}" ]]; then
+  eval "$($RBENV_ROOT/bin/rbenv init -)"
+fi
+
+complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
+      || complete -o default -o nospace -F _git g
+
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi

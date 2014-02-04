@@ -39,14 +39,7 @@ parse_git_branch() {
 export PROMPT_COMMAND='echo -ne "\033]2;${USER}@${HOSTNAME%%.*}: ${PWD/#$HOME/~}\007" && PS1="\n<\[\033[0;32m\]\h\[\033[0m\]:\[\033[0;37m\]\u\[\033[0m\]> \j [\$(date +%m-%d\" \"%H:%M)] \[\033[0;32m\]\$(parse_git_branch)\[\033[0m\]\w \n! "'
 # export PS1="<\[\033[0;32m\]\u\[\033[0m\]> \j [\$(date +%m-%d\" \"%H:%M)] \[\033[0;32m\]\$(parse_git_branch)\[\033[0m\]\w \n! "
 
-export PATH=~/bin:/opt/local/bin:/opt/local/sbin:$HOME/usr/local/bin:$HOME/usr/local/sbin:/Users/dcamerino/usr/local/share/npm/bin:$PATH
-
-# Bash completion
-if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
-  . `brew --prefix`/etc/bash_completion.d/git-completion.bash
-fi
-[[ -s ~/usr/local/etc/bash_completion.d/git-completion.bash ]] && source ~/usr/local/etc/bash_completion.d/git-completion.bash
-complete -o default -o nospace -F _git_checkout g
+export PATH=~/bin:/opt/local/bin:/opt/local/sbin:$HOME/usr/local/bin:$HOME/usr/local/sbin:$HOME/mongodb/bin:$PATH
 
 # gemdoc() {
 #   local gemdir=`gem env gemdir`
@@ -67,3 +60,5 @@ if [[ -s /Users/derrick/.rvm/scripts/rvm ]] ; then source /Users/derrick/.rvm/sc
 # MacPorts Installer addition on 2011-02-20_at_14:39:16: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
+
+[ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM

@@ -5,7 +5,7 @@
 " set guioptions-=m
 
 " fullscreen maximizes vertically AND horizontally
-  set fuoptions=maxvert,maxhorz
+" set fuoptions=maxvert,maxhorz
 
 " TABS: safari style tab navigation
   nmap <D-[> :tabprevious<CR>
@@ -38,22 +38,17 @@
 
   set lines=70
   set columns=110
-  set gfn=Menlo:h15
+  set gfn=Lucida_Console:h15
+  set guifont=Monospace
 
 " bind command-option-l to toggle line numbers
   nmap <silent> <D-M-l> :set invnumber<CR>
 
 " Unmap Apple+T so we can...
-  macmenu &File.New\ Tab key=<nop>
-
-" Change Apple+T to TextMate Like Fuzzy Finder
-  nnoremap <D-t> :tabedit<CR>:FuzzyFinderTextMateRefreshFiles<CR>:FuzzyFinderTextMate<CR>
+" macmenu &File.New\ Tab key=<nop>
 
 " Unmap Apple+Shift+T so we can...
-  macmenu &File.Open\ Tab\.\.\. key=<nop>
-
-" Change Apple+Shift+T to TextMate Like Fuzzy Finder
-  nnoremap <D-T> :FuzzyFinderTag!<CR>
+" macmenu &File.Open\ Tab\.\.\. key=<nop>
 
 " Run file in shell mode with ruby
   nnoremap <D-r> :Shell ruby %<cr>
