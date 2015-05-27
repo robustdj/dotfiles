@@ -1,3 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/usr/local/google/home/dcamerino/.chef'
+let g:netrw_dirhist_2='/Users/derrick/code/aperture/app/assets/javascripts'
+let g:netrw_dirhist_3='/Users/derrick/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/rspec-instafail-0.2.4'
+let g:netrw_dirhist_4='/Users/derrick/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/rspec-instafail-0.2.4/spec'
+let g:netrw_dirhist_5='/Users/derrick/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/rspec-instafail-0.2.4'

@@ -38,8 +38,8 @@
 
   set lines=70
   set columns=110
-  set gfn=Lucida_Console:h15
-  set guifont=Monospace
+  set gfn=Menlo:h17
+  set guifont=Menlo:h17
 
 " bind command-option-l to toggle line numbers
   nmap <silent> <D-M-l> :set invnumber<CR>
@@ -53,4 +53,5 @@
 " Run file in shell mode with ruby
   nnoremap <D-r> :Shell ruby %<cr>
 
-  colorscheme molokai
+  set background=dark
+  colorscheme distinguished

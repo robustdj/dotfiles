@@ -102,6 +102,10 @@ ws(){
   #eval $(printf "%q`cap $1 | awk '/$2/' | awk '{print \$NF}'`" "ssh wildfire@")
 }
 
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
 # Interactive operation...
 alias rm='rm -i'
 alias cp='cp -i'
@@ -195,3 +199,11 @@ complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
 if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
+
+export PATH="./node_modules/.bin:${PATH}"
+export RBENV_ROOT=${install_dir}
+export PATH=${install_dir}/bin:$PATH
+eval "$(rbenv init -)"
+
+export NVM_DIR="/Users/derrick/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

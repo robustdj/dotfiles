@@ -52,7 +52,6 @@ export PATH=~/bin:/opt/local/bin:/opt/local/sbin:$HOME/usr/local/bin:$HOME/usr/l
 # }
 # complete -o default -o nospace -F _gemdocomplete gemdoc
 
-if [[ -s /Users/derrick/.rvm/scripts/rvm ]] ; then source /Users/derrick/.rvm/scripts/rvm ; fi
 ##
 # Your previous /Users/derrick/.bash_profile file was backed up as /Users/derrick/.bash_profile.macports-saved_2011-02-20_at_14:39:16
 ##
@@ -62,3 +61,6 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
+export RBENV_ROOT=${install_dir}
+export PATH=${install_dir}/bin:$PATH
+eval "$(rbenv init -)"

@@ -192,9 +192,9 @@
   autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
 " Highlight too-long lines
-  autocmd BufRead,InsertEnter,InsertLeave * 2match LineLengthError /\%126v.*/
-  highlight LineLengthError ctermfg=red guifg=red
-  autocmd ColorScheme * highlight LineLengthError ctermfg=red guifg=red
+  "autocmd BufRead,InsertEnter,InsertLeave * 2match LineLengthError /\%126v.*/
+  "highlight LineLengthError ctermfg=red guifg=red
+  "autocmd ColorScheme * highlight LineLengthError ctermfg=red guifg=red
 
 " Fuck whitespace
   "autocmd FileType c,cpp,java,php,ruby,eruby,python,html,css,javascript autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
@@ -224,3 +224,8 @@
 " End for Solarized
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+set transparency=10
+
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|dist$\|node_modules$\|project_files\|tmp$',
+    \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }

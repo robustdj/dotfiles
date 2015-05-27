@@ -90,3 +90,6 @@ alias ip_itd2='mysql -uroot -e '\''drop database insiderpages_test2; create data
 
 #Ruby Version Manager
 if [[ -s /Users/scudco/.rvm/scripts/rvm ]] ; then source /Users/scudco/.rvm/scripts/rvm ; fi
+export RBENV_ROOT=${install_dir}
+export PATH=${install_dir}/bin:$PATH
+eval "$(rbenv init -)"
